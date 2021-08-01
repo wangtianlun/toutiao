@@ -28,7 +28,16 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return EasyRefresh(
       controller: _controller,
-      child: ListView(),
+      child: ListView(
+        children: [
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/detail',
+                    arguments: {"pid": 456});
+              },
+              icon: Icon(Icons.add))
+        ],
+      ),
       onRefresh: () async {
         print('refresh ---');
       },
